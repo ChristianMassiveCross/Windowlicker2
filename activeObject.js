@@ -44,6 +44,7 @@ function activeObjectRect (Stage,Name) {
     							    this.width
     	);
 	};
+
 	this.addToStage = function (){
 		if(!this.Stage.getElementByName(this.Name)){
 	    	this.Stage.activeObjects.push(this);

@@ -9,8 +9,8 @@ $(document).ready(  function (evt) {
     ObjRect.action = function (){
         innerObject = new activeObjectRect(Stage,'innerObject');
         innerObject.setFillColor('#0000ff');
-        innerObject.setTopLeft(200,50);
-        innerObject.setHeightAndLenght(150,33);
+        innerObject.setTopLeft(200 ,10);
+        activeObject_Text( innerObject,'ein toller Text',42 );
         innerObject.action = function (){
             this.removeFromStage();
         }
@@ -19,7 +19,6 @@ $(document).ready(  function (evt) {
     };
     ObjRect.addToStage();
     new activeObjectRect(Stage,'doof').addToStage();
-    new activeObjectRect(Stage,'Text').setTopLeft(120,30).addToStage();
     Stage.rewriteCanvas();
     Stage.framework({
         onresize: function(width, height) {
