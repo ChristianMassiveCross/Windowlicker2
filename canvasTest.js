@@ -1,6 +1,6 @@
 $(document).ready(  function (evt) {
     var Stage = cq();
-    Stage.setColorsSchema('fancy');
+    Stage.setColorsSchema('debug');
     Stage.rewriteCanvas();
     Stage.framework({
         onresize: function(width, height) {
