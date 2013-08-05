@@ -19,16 +19,16 @@ function activeObjectRect (Stage,Name) {
 		this.PosY = y;
 		return this;
 	}
-	this.setHeightAndLenght = function ( height,width ){
+	this.setHeightAndWidth = function ( height, width ){
 		this.height = height;
 		this.width = width;
 		return this;
 	}
 	this.click = function ( PosX,PosY ){
 		if(    PosX > this.PosX 
-			&& PosX < (this.PosX+this.height) 
+			&& PosX < (this.PosX+this.width) 
 			&& PosY > this.PosY 
-			&& PosY < (this.PosY+this.width)
+			&& PosY < (this.PosY+this.height)
 		){
 			this.action();
         	return true;
@@ -40,14 +40,18 @@ function activeObjectRect (Stage,Name) {
 		this.Stage.context.fillStyle = this.fillColor;
     	this.Stage.context.fillRect(this.PosX, 
     							    this.PosY, 
-    							    this.height, 
-    							    this.width
+    							    this.width,
+    							    this.height 
     	);
 	};
 
 	this.addToStage = function (){
-		if(!this.Stage.getElementByName(this.Name)){
-	    	this.Stage.activeObjects.push(this);
+		// this.Stage.printActiveObjectsNames();
+		ElementNumber = this.Stage.getElementNumberByName(this.Name);
+		if (ElementNumber != 'unkown' && ElementNumber >= 0){
+	            this.Stage.activeObjects[ElementNumber] = this;
+		}else{
+		    	this.Stage.activeObjects.push(this);
 		}
     	return this;
 	};
