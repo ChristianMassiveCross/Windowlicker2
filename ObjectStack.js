@@ -20,7 +20,7 @@ function objectStack (Stage){
 	}
 	this.AlertObject = function (){
     	    innerObject = new activeObjectRect(this.Stage,'innerObject');
-    	    innerObject.setFillColor('#0000ff');
+    	    innerObject.setFillColor('#ff00ff');
     	    innerObject.setTopLeft(100 ,100);
     	    innerObject.action = function (){
     	        this.removeFromStage();
