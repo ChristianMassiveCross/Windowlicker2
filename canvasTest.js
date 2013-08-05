@@ -1,24 +1,6 @@
 $(document).ready(  function (evt) {
     var Stage = cq();
-    Stage.SetColorsSchema('#123456');
-    Stage.fillStyle("#ff0000").fillRect(64, 64, 32, 32);
-    ObjRect = new activeObjectRect(Stage,'Red');
-    ObjRect.setFillColor('#ff0000');
-    ObjRect.setTopLeft(50,50);
-    ObjRect.setHeightAndLenght(50,50);
-    ObjRect.action = function (){
-        innerObject = new activeObjectRect(Stage,'innerObject');
-        innerObject.setFillColor('#0000ff');
-        innerObject.setTopLeft(200 ,10);
-        activeObject_Text( innerObject,'ein toller Text',42 );
-        innerObject.action = function (){
-            this.removeFromStage();
-        }
-        innerObject.addToStage();
-        Stage.rewriteCanvas();
-    };
-    ObjRect.addToStage();
-    new activeObjectRect(Stage,'doof').addToStage();
+    Stage.setColorsSchema();
     Stage.rewriteCanvas();
     Stage.framework({
         onresize: function(width, height) {
@@ -26,14 +8,8 @@ $(document).ready(  function (evt) {
             this.canvas.height = height;
             this.rewriteCanvas();
         },
-
         /* mouse and touch events */
-        onousedown: function(x, y) { alert('down');},
-        onmouseup: function(x, y) { //alert('up:'+x+y);
-            doof_element = Stage.getElementByName('doof');
-            doofPosX = doof_element.PosX;
-            doofPosY = doof_element.PosY;
-            doof_element.setTopLeft(++doofPosX,doofPosY);
+        onmouseup: function(x, y) { //alert('up:'+x+'..'+y);
             Stage.PointerDown(x,y);
         },
         //ontouchstart: function () { },
